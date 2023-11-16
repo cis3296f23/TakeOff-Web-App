@@ -21,7 +21,7 @@ def login():
 
         # Dummy response for demonstration
         if username == 'john_doe' and hashed_password == '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8':
-            # Generate a token for the authenticated user
+            # Generate a token for the authenticated user & store token into token_store
             token = secrets.token_hex(16)
             token_store[token] = username
             response_data = {'success': True, 'message': 'Login successful', 'token': token}
@@ -39,7 +39,7 @@ def login():
         response = jsonify(response_data)
         response.headers['Allow'] = 'POST'  # Set Allow header for POST method
         return make_response(response, 405)
-
+   
 if __name__ == '__main__':
     print("Running")
     app.run(debug=True)  # Run the app
