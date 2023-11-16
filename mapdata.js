@@ -1578,7 +1578,9 @@ var simplemaps_worldmap_mapdata={
       lng: "2.333333333",
       color: "default",
       description: "default",
-      url: "default"
+      url: "default",
+      type: "circle", // default type is "square"
+      size: 10
     },
     "1": {
       name: "Tokyo",
