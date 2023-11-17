@@ -2,6 +2,7 @@ function validateLogin() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const hashedPassword = CryptoJS.SHA256(password).toString();
+  
 
   fetch('http://localhost:5000/login', {
     method: "POST",
@@ -18,12 +19,24 @@ function validateLogin() {
       }
       return response.json();
     })
-    .then(json =>console.log(json))
+    //.then(json =>console.log(json))
     .then((data) => {
       // Handle response from the server
       if (data.success) {
         // Redirect to a dashboard or logged-in page
         console.log("Login successful");
+        const token = data.token
+    if(token){
+      console.log('Token Found: ', token);
+      localStorage.setItem('authTokenTO', token);
+      console.log("from storage");
+      console.log(localStorage.getItem('authTokenTO'));
+
+    }
+    else
+    {
+      console.log("Token not found");
+    }
         // window.location.href = '/dashboard'; // Redirect to dashboard
       } else {
         // Display error message for failed login
@@ -40,6 +53,7 @@ function validateLogin() {
       // const errorMessage = document.getElementById("login-error");
       // errorMessage.textContent = 'Something went wrong, please try again';
     });
+
 }
 
 document
