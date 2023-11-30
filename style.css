@@ -1,9 +1,10 @@
-/* style.css */
+
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    height: 100vh;
     background-color: #f0f0f0;
 }
 
@@ -14,52 +15,96 @@ body {
     text-align: center;
 }
 
-#login-section {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-#login-section h3 {
-    font-size: 20px;
-    margin: 5px; 
-}
-
-#login-section h3 a {
-    text-decoration: none;
-    color: #333;
-    position: relative;
-    transition: color 0.3s;
-}
-
-#login-section h3 a:hover {
-    color: #555;
-}
-
-#login-section h3 a::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
+.popup-container {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    position: fixed;
+    top: 0;
     left: 0;
-    background-color: #fff;
+    width: 14%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.5);
     visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
+  }
+  .popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative;
+  }
 
-#login-section h3 a:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
+  h2 {
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .switch-form {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .switch-form a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .switch-form a:hover {
+    text-decoration: underline;
+  }
+  
+  .popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close-popup-btn {
+    background: none;
+    color: #555;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    position: right;
+    top: 5px; 
+    right: 5px; 
+  }
+ 
 #map {
-    width: 80%;
+    width: 70%;
     margin: 20px auto;
     position: relative;
     overflow: hidden;
@@ -76,40 +121,6 @@ body {
     height: auto;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .user-destination {
     display: flex;
@@ -137,28 +148,8 @@ select {
     cursor: pointer;
 }
 
-form {
-    margin-bottom: 20px;
-}
 
-.input-group {
-    margin-bottom: 15px;
-}
 
-.form-group {
-    margin-bottom: 15px;
-}
 
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-button:hover {
-    background-color: #555;
-}
+

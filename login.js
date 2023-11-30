@@ -48,3 +48,26 @@ document
     event.preventDefault(); // Prevent the default form submission
     validateLogin();
   });
+
+  function openPopup() {
+    var popupContainer = document.getElementById("popupContainer");
+    popupContainer.style.visibility = "visible";
+  }
+  
+  function closePopup() {
+    var popupContainer = document.getElementById("popupContainer");
+    popupContainer.style.visibility = "hidden";
+  }
+  
+  function toggleForm() {
+    var loginForm = document.getElementById("loginForm");
+    var signupForm = document.getElementById("signupForm");
+  
+    if (loginForm.style.display === "none") {
+      loginForm.style.display = "block";
+      signupForm.style.display = "none";
+    } else {
+      loginForm.style.display = "none";
+      signupForm.style.display = "block";
+    }
+  }

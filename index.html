@@ -16,67 +16,70 @@
 <body>
     <div id="header">
         <h5>Take Off</h5>
-        <div id="login-section">
-            <h3 onclick="openModal('loginModal')"><a href="#">Login</a></h3>
-            <h3 onclick="openModal('signupModal')"><a href="#">Sign Up</a></h3>
-        </div>
+      
     </div>
+    <button class="open-popup-btn" onclick="openPopup()">Sign In</button>
 
-    <div id="map"></div>
-    <div id="airport-info">
-        <p>Origin Airport: <span id="origin-airport-name"></span></p>
-        <p>Destination Airport: <span id="destination-airport-name"></span></p>
-    </div>
-    
-    <div class="user-destination">
-        <label for="user-destination-input">Destination:</label>
-        <input type="text" id="user-destination-input">
-        <button onclick="getUserDestination()">Go</button>
-    </div>
 
-    <div class="filters">
-        <label for="filter-dropdown">Filter by:</label>
-        <select id="filter-dropdown" class="form-control">
-          <option value="category1">Duration</option>
-          <option value="category2">Location</option>
-          <option value="category3">Destination</option>
-        </select>
-    </div>
-
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h4 class="mb-4">Login</h4>
+    <div class="popup-container" id="popupContainer">
+        <div class="popup">
+            <button class="close-popup-btn" onclick="closePopup()">✖</button>
             <form id="loginForm">
-                <div class="form-group">
-                    <input type="text" id="username" class="form-control" placeholder="Username" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="password" class="form-control" placeholder="Password" required>
-                </div>
-                <button type="button" class="btn btn-primary" onclick="validateLogin()">Submit</button>
-                <p id="login-error" style="color: red;"></p>
-            </form>
+            <h2>Login</h2>
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="username" name="Username" required>
+    
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+    
+            <button type="submit">Login</button>
+    
+            <div class="switch-form">
+              <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
+            </div>
+          </form>
+    
+          <form id="signupForm" style="display: none;">
+            <h2>Sign up</h2>
+            <label for="signupNewUsername">New Username:</label>
+            <input type="text" id="newUsername" name="New Username" required>
+    
+            <label for="signupNewPassword">New Password:</label>
+            <input type="password" id="newPassword" name="New Password" required>
+    
+            <button type="submit">Sign up</button>
+    
+            <div class="switch-form">
+              <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+            </div>
+          </form>
         </div>
-    </div>
+      </div>
+    
+      <script src="login.js"></script>
 
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('signupModal')">&times;</span>
-            <h4 class="mb-4">Sign Up</h4>
-            <form id="signupForm">
-                <div class="form-group">
-                    <input type="text" id="newUsername" class="form-control" placeholder="New Username" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="newPassword" class="form-control" placeholder="New Password" required>
-                </div>
-                <button type="button" class="btn btn-primary" onclick="validateSignup()">Submit</button>
-                <p id="signup-error" style="color: red;"></p>
-            </form>
-        </div>
-    </div>
 
+      
+      <div id="map"></div>
+      <div id="airport-info">
+          <p>Origin Airport: <span id="origin-airport-name"></span></p>
+          <p>Destination Airport: <span id="destination-airport-name"></span></p>
+      </div>
+      
+      <div class="user-destination">
+          <label for="user-destination-input">Destination:</label>
+          <input type="text" id="user-destination-input">
+          <button onclick="getUserDestination()">Go</button>
+      </div>
+  
+      <div class="filters">
+          <label for="filter-dropdown">Filter by:</label>
+          <select id="filter-dropdown" class="form-control">
+            <option value="category1">Duration</option>
+            <option value="category2">Location</option>
+            <option value="category3">Destination</option>
+          </select>
+      </div>
     <script>
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
