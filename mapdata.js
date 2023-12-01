@@ -1591,7 +1591,18 @@ var simplemaps_worldmap_mapdata={
       hide: "yes"
     }
   },
-  labels: {}
+  labels: {},
+  lines: {
+    "1": {
+      name: "flight_path",
+      origin_location: "",
+      destination_location: "",
+      color: "#000000",
+      angle: 45,
+      size: 2,
+      dash: ""
+    }
+  }  
 };
 
 function updateMap(orig, dest) {
@@ -1610,6 +1621,12 @@ function updateMap(orig, dest) {
   dest_display.lng = dest.lng;
   dest_display.hide = "no";
 
+  // Display attributes for flight path
+  flight_path = simplemaps_worldmap_mapdata.lines[1];
+  flight_path.origin_location = 0;
+  flight_path.destination_location = 1;
+
+  console.log(flight_path);
   
   simplemaps_worldmap.refresh();
 }
