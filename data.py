@@ -11,7 +11,7 @@ CORS(app)  # Enable CORS for all routes or specify origins with CORS(app, origin
 # first get airports nearby your location
 def origin(lat, lng):
     origin_params = {
-        'api_key': '09091728-2089-427d-b5f2-c0db3901669a',
+        'api_key': 'bb693f91-a910-449b-ad69-b9699f7991db',
         'lat': lat,
         'lng': lng,
         'distance': '50'
@@ -34,7 +34,7 @@ def origin(lat, lng):
 # get destination airports
 def des(lat, lng):
     des_params = {
-        'api_key': '09091728-2089-427d-b5f2-c0db3901669a',
+        'api_key': 'bb693f91-a910-449b-ad69-b9699f7991db',
         'lat': lat,
         'lng': lng,
         'distance': '50'
@@ -57,7 +57,7 @@ def des(lat, lng):
 
 
 airline_params = {
-    'api_key': '09091728-2089-427d-b5f2-c0db3901669a',
+    'api_key': 'bb693f91-a910-449b-ad69-b9699f7991db',
     'country_code': 'US'
 
 }
@@ -88,7 +88,7 @@ def get_routes(origin_airport, des_airport, airlines):
     times = {}
     for i in range(5):
         route_params = {
-            'api_key': '09091728-2089-427d-b5f2-c0db3901669a',
+            'api_key': 'bb693f91-a910-449b-ad69-b9699f7991db',
             'dep_iata': origin_airport.get('iata_code'),
             'dep_icao': origin_airport.get('icao_code'),
             'arr_iata': des_airport.get("iata_code"),
