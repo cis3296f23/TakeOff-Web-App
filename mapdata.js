@@ -1622,6 +1622,7 @@ function updateMap(orig, dest) {
   dest_display.hide = "no";
 
   // Display attributes for flight path
+  // Documentation: https://simplemaps.com/docs/lines
   flight_path = simplemaps_worldmap_mapdata.lines[1];
   flight_path.origin_location = 0;
   flight_path.destination_location = 1;
