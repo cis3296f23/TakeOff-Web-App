@@ -103,13 +103,13 @@ def get_routes(origin_airport, des_airport, airlines):
             if route_data:
                 shortest = route_data[0]['duration']
                 day = ""
-            for data in route_data:
-                if data['duration'] < shortest:
-                    shortest = data['duration']
-                    day = data['days'][0]
+                for data in route_data:
+                    if data['duration'] < shortest:
+                        shortest = data['duration']
+                        day = data['days'][0]
+                times[airlines['names'][i]] = [day, shortest]
         else:
             print("API request failed with status code:", route_response.status_code)
-        times[airlines['names'][i]] = [day, shortest]
     return times
     
 @app.route('/get_coordinates', methods=['POST'])
