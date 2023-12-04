@@ -1574,8 +1574,8 @@ var simplemaps_worldmap_mapdata={
   locations: {
     "0": {
       name: "",
-      lat: "",
-      lng: "",
+      lat: 0,
+      lng: 0,
       color: "blue",
       type: "image",
       image_url: "house.png",
@@ -1585,8 +1585,8 @@ var simplemaps_worldmap_mapdata={
     },
     "1": {
       name: "",
-      lat: "",
-      lng: "",
+      lat: 0,
+      lng: 0,
       color: "green",
       type: "image",
       image_url: "pin.png",
@@ -1595,25 +1595,43 @@ var simplemaps_worldmap_mapdata={
       hide: "yes"
     }
   },
-  labels: {}
+  lines: {
+    "1": {
+      name: "",
+      origin_location: "",
+      destination_location: "",
+      color: "",
+      angle: 0,
+      size: 0,
+      dash: ""
+    }
+},
+  labels: {},
 };
 
 function updateMap(orig, dest) {
-  orig_display = simplemaps_worldmap_mapdata.locations[0];
-  dest_display = simplemaps_worldmap_mapdata.locations[1];
+  simplemaps_worldmap_mapdata.locations[0].name = orig.name;
+  simplemaps_worldmap_mapdata.locations[0].lat = orig.lat; // Update with your latitude
+  simplemaps_worldmap_mapdata.locations[0].lng = orig.lng; // Update with your longitude
+  simplemaps_worldmap_mapdata.locations[0].hide = "no"; // Show the location
 
-  // Map display attributes for origin airport
-  orig_display.name = orig.name;
-  orig_display.lat = orig.lat;
-  orig_display.lng = orig.lng;
-  orig_display.hide = "no";
-
-  // Map display attributes for destination airport
-  dest_display.name = dest.name;
-  dest_display.lat = dest.lat;
-  dest_display.lng = dest.lng;
-  dest_display.hide = "no";
+  console.log(orig.lat,orig.lng);
+  console.log(dest.lat,dest.lng);
+  simplemaps_worldmap_mapdata.locations[1].name = dest.name;
+  simplemaps_worldmap_mapdata.locations[1].lat = dest.lat; // Update with your latitude
+  simplemaps_worldmap_mapdata.locations[1].lng = dest.lng; // Update with your longitude
+  simplemaps_worldmap_mapdata.locations[1].hide = "no"; // Show the location
 
 
-  simplemaps_worldmap.refresh();
+  simplemaps_worldmap_mapdata.lines[1].name = "Origin-Destin";
+  simplemaps_worldmap_mapdata.lines[1].origin_location = "0"; // Refer to the index of the origin location
+  simplemaps_worldmap_mapdata.lines[1].destination_location = "1"; // Refer to the index of the destination location
+  simplemaps_worldmap_mapdata.lines[1].angle = 45;
+  simplemaps_worldmap_mapdata.lines[1].size = 2;
+  simplemaps_worldmap_mapdata.lines[1].color = "#000000";
+
+  console.log(simplemaps_worldmap_mapdata.locations[0]);
+  console.log(simplemaps_worldmap_mapdata.locations[1]);
+  console.log(simplemaps_worldmap_mapdata.lines[1]);
+  simplemaps_worldmap.load();
 }
