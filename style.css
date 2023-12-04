@@ -67,9 +67,53 @@ body {
     justify-content: center;
 }
 
-#airport-info p {
-    margin-left: 10px;
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.modal-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-body {
+    color: #555;
+}
+
+#origin-airport-name,
+#destination-airport-name,
+#origin-airport-iata,
+#destination-airport-iata {
+    display: inline;
+    margin: 10px;
+}
+
+#origin-airport-name,
+#destination-airport-name {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.airline-info {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 #world-map {
     width: 100%;

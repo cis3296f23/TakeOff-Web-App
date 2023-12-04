@@ -11,6 +11,7 @@
     <script src="worldmap.js"></script>
     <script src="geolocation.js"></script>
     <script src="login.js"></script>
+    <script src="signup.js"></script>
 </head>
 
 <body>
@@ -23,24 +24,58 @@
     </div>
 
     <div id="map"></div>
-    <div id="airport-info">
-        <p>Origin Airport: <span id="origin-airport-name"></span></p>
-        <p>Destination Airport: <span id="destination-airport-name"></span></p>
+    <div class="modal fade" id="airportInfoModal" tabindex="-1" role="dialog" aria-labelledby="airportInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="airportInfoModalLabel">Flight Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Origin: <span id="origin-airport-name"></span><span id="origin-airport-iata"></span></p>
+                    <p>Destination: <span id="destination-airport-name"></span><span id="destination-airport-iata"></span></p>
+                    <div id="airline-info">
+                        <div id="aa-info" class="airline-info">
+                            <h6>American Airlines:</h6>
+                            <p>Day: <span id="aa-day"></span></p>
+                            <p>Duration: <span id="aa-duration"></span> minutes</p>
+                        </div>
+
+                        <div id="sw-info" class="airline-info">
+                            <h6>Southwest Airlines:</h6>
+                            <p>Day: <span id="sw-day"></span></p>
+                            <p>Duration: <span id="sw-duration"></span> minutes</p>
+                        </div>
+                        
+                        <div id="sp-info" class="airline-info">
+                            <h6>Spirit Airlines:</h6>
+                            <p>Day: <span id="sp-day"></span></p>
+                            <p>Duration: <span id="sp-duration"></span> minutes</p>
+                        </div>
+                        
+                        <div id="da-info" class="airline-info">
+                            <h6>Delta Airlines:</h6>
+                            <p>Day: <span id="da-day"></span></p>
+                            <p>Duration: <span id="da-duration"></span> minutes</p>
+                        </div>
+                        
+                        <div id="ua-info" class="airline-info">
+                            <h6>United Airlines:</h6>
+                            <p>Day: <span id="ua-day"></span></p>
+                            <p>Duration: <span id="ua-duration"></span> minutes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="user-destination">
-        <label for="user-destination-input">Destination:</label>
-        <input type="text" id="user-destination-input">
-        <button onclick="getUserDestination()">Go</button>
-    </div>
-
-    <div class="filters">
-        <label for="filter-dropdown">Filter by:</label>
-        <select id="filter-dropdown" class="form-control">
-          <option value="category1">Duration</option>
-          <option value="category2">Location</option>
-          <option value="category3">Destination</option>
-        </select>
+        <label for="user-destination-input" class="mr-2">Destination:</label>
+        <input type="text" id="user-destination-input" class="form-control mr-2">
+        <button onclick="getUserDestination()" class="btn btn-primary">Go</button>
     </div>
 
     <div id="loginModal" class="modal">

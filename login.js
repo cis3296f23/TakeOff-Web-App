@@ -11,35 +11,32 @@ function validateLogin() {
     body: JSON.stringify({ "username": username, "hashedPassword": hashedPassword }),
   })
     .then((response) => {
-      console.log(response.json())
-      if (response.status_code === 401) {
-        throw new Error("Unauthorized");
-      } else if (!response.ok) {
-        throw new Error("Login failed");
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error("Unauthorized");
+        } else {
+          throw new Error("Login failed");
+        }
       }
       return response.json();
     })
-    .then(json =>console.log(json))
     .then((data) => {
-      // Handle response from the server
       if (data.success) {
-        // Redirect to a dashboard or logged-in page
         console.log("Login successful");
+        // Redirect to a dashboard or logged-in page
         // window.location.href = '/dashboard'; // Redirect to dashboard
       } else {
-        // Display error message for failed login
         console.error("Login failed");
-        // Show error message to the user
-        // const errorMessage = document.getElementById("login-error");
-        // errorMessage.textContent = 'Invalid credentials';
+        const signupError = document.getElementById("signup-error");
+        signupError.textContent = "Invalid credentials";
+        signupError.style.color = "red";
       }
     })
     .catch((error) => {
       console.error("Error:", error);
-      // Handle other errors, such as network issues
-      // Display error message to the user
-      // const errorMessage = document.getElementById("login-error");
-      // errorMessage.textContent = 'Something went wrong, please try again';
+      const signupError = document.getElementById("login-error");
+      signupError.textContent = `Something went wrong, please try again. Reason: ${error.message} `;
+      signupError.style.color = "red";
     });
 }
 

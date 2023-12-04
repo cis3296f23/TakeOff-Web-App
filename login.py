@@ -6,13 +6,12 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes or specify origins with CORS(app, origins="*") for all origins
 
 # Establish cx_Oracle connection to Oracle database
-dsn_tns = cx_Oracle.makedsn('localhost', '11521', service_name='cisora.cis.temple.edu')
-username = 'sp23_4331_tug62328'
-password = 'aizihoo7In'
-# print("Test")
+dsn_tns = cx_Oracle.makedsn('oracle1.cis.temple.edu', '1521', service_name='cisora')
+username = 'tup09776'
+password = '916080352'
 try:
     oracle_connection = cx_Oracle.connect(user=username, password=password, dsn=dsn_tns)
-    print("Inside Try-B")
+    # print("Inside Try-B")
     oracle_cursor = oracle_connection.cursor()
     print("Oracle DB Connection Successful")
 except cx_Oracle.DatabaseError as e:
