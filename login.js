@@ -23,11 +23,15 @@ function validateLogin() {
     .then((data) => {
       if (data.success) {
         console.log("Login successful");
+        const signUpSuccess = document.getElementById("login-error");
+        signUpSuccess.textContent = 'Login Successful';
+        signUpSuccess.style.color = "green";
+
         // Redirect to a dashboard or logged-in page
         // window.location.href = '/dashboard'; // Redirect to dashboard
       } else {
         console.error("Login failed");
-        const signupError = document.getElementById("signup-error");
+        const signupError = document.getElementById("login-error");
         signupError.textContent = "Invalid credentials";
         signupError.style.color = "red";
       }
