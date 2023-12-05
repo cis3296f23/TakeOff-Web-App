@@ -79,7 +79,7 @@ function updateAirportInfo(data) {
 }
 
 function displayModal(orig, dest, data){
-    $('#map').on('click', function () {
+    $('.flight-button').on('click', function () {
       $('#modal-origin-airport-name').text(orig.name);
       $('#modal-destination-airport-name').text(dest.name);
       $('#origin-airport-iata').text(`(${orig.iata_code})`);
@@ -93,7 +93,7 @@ function displayModal(orig, dest, data){
 
       $('#airportInfoModal').modal('show');
     });
-  }
+  } 
   
   function displayAirlineInfo(airlineId, info) {
     $(`#${airlineId}-day`).text(info[0]);

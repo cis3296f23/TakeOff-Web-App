@@ -1633,5 +1633,6 @@ function updateMap(orig, dest) {
   console.log(simplemaps_worldmap_mapdata.locations[0]);
   console.log(simplemaps_worldmap_mapdata.locations[1]);
   console.log(simplemaps_worldmap_mapdata.lines[1]);
+  
   simplemaps_worldmap.load();
 }
