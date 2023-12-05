@@ -14,4 +14,62 @@ As the project progress, this will be updated. For now, simply launch [TakeOff-W
 Follow this project board to know the latest status of the project: [Project Board](https://github.com/orgs/cis3296f23/projects/130/views/1)
 
 # How to build 
-This project can be built by downloading the git repository and opening index.html using any common web-browser such as Chrome/Safari/Firefox/Microsoft Edge.
+Currently, the most stable release of this project is the main branch.
+This project has been thoroughly tested on python v3.12.0 and javascript (ECMAScript 2023).
+
+This project makes use of multiple different libraries, packages and drivers all of which will be necessary to build.
+
+### Geocoder
+Firstly, we will need the 'geocoder' library which is a simple and consistent geocoding library written in Python. This is done simply using the 
+`pip install geocoder` command.
+
+To double check the success, rerun the commands and you should expect a similiar output:
+
+![Geocoder](ImagesForReadMe/geocoderpip.JPG)
+
+### Flask
+
+Secondly, we will need the flask and CORS libraries/modules. These modules are used for setting up the back-end servers and allow communication between the javascript oriented frontend and python oriented backend.
+
+`pip install flask`
+`pip install CORS`
+
+To double check the success, rerun the commands and you should expect a similiar output:
+
+![Flask](ImagesForReadMe/flask.JPG)
+![CORS](ImagesForReadMe/CORS.JPG)
+
+## Database Modules / Drivers
+
+Next, this project takes advantage of Temple's Oracle SQL database server. 
+
+This is the most difficult part of the build process. You will need to manually download the Instant-Client for windows/macOS respectively.
+![Instant-CLient](ImagesForReadMe/Build1.png)
+![Instant-CLient](ImagesForReadMe/Build2.png)
+![Instant-CLient](ImagesForReadMe/build2MacOS.png)
+
+This folder must be added to your PATH file path.
+
+
+![Path](ImagesForReadMe/FilePathForInstantClient.png)
+ 
+To ensure that the drivers are found by python, copy and paste the .dll files into the C:\User\Python\Python312 to ensure they are correctly found. 
+
+![dll-Files](ImagesForReadMe/copyAndMoveDLLFiles.png)
+
+### cx_Oracle
+
+Due to Temple's Server being a bit deprecated, we will need to use cx_Oracle as opposed to the current, oracledb library. In addition to this, we must have Microsoft Visual C++ 14.0 or greater, only able to be downloaded using Visual-Studio-CPP-Build-Tools directly from their website using their installation/downloadable program.
+
+
+![Instant-CLient](ImagesForReadMe/VisualStudio.png)
+
+After all this, you can sucessfully do 
+`pip install cx_Oracle`
+
+To double check the success, rerun the commands and you should expect a similiar output:
+
+![cx_Oracle](ImagesForReadMe/cx_Oracle.JPG)
+
+
+
