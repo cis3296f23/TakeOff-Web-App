@@ -1,6 +1,10 @@
+""" Description: Connects to the database & runs login function
+"""
+
 from flask import Flask, request, jsonify, make_response
 import cx_Oracle
 from flask_cors import CORS  # Import the CORS module
+import pydoc
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes or specify origins with CORS(app, origins="*") for all origins
@@ -22,6 +26,11 @@ except cx_Oracle.DatabaseError as e:
 @app.route('/login', methods=['POST'])
 def login():
     # print("login")
+    
+    """ Description: Gets username & password information & authenticate against Oracle database
+    Return: Message response with status code
+    """
+
     if request.method == 'POST':
         data = request.get_json()  # Get the JSON data from the request
         username = data.get('username')
@@ -50,3 +59,4 @@ def login():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+pydoc.writedoc('login')
