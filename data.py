@@ -37,7 +37,7 @@ def des(lat, lng):
         'api_key': 'bb693f91-a910-449b-ad69-b9699f7991db',
         'lat': lat,
         'lng': lng,
-        'distance': '50'
+        'distance': '75'
     }
     des_url = 'https://airlabs.co/api/v9/nearby'
     des_response = requests.get(des_url, params=des_params)
