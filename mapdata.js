@@ -1,3 +1,7 @@
+/**
+ * Using SimpleMaps API to generate map
+ */
+
 var simplemaps_worldmap_mapdata={
   main_settings: {
     //General settings
@@ -1608,6 +1612,12 @@ var simplemaps_worldmap_mapdata={
 },
   labels: {},
 };
+
+/**
+ * Update map according to the origin & destination locations (from the latitude & longitude) & display a line that to show the flight path
+ * @param {*} orig Origin location
+ * @param {*} dest Destination location
+ */
 
 function updateMap(orig, dest) {
   simplemaps_worldmap_mapdata.locations[0].name = orig.name;

@@ -1,3 +1,7 @@
+/**
+ * Function to validate login by getting the username & password, based on response display any errors/messages front end
+ */
+
 function validateLogin() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;

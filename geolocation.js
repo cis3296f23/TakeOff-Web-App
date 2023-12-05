@@ -1,3 +1,7 @@
+/**
+ * Object declaration of locationInfo that has latitude & longitude for origin location as well as address for destination location
+ */
+
 var locationInfo = {
     // origin
     lat: null,
@@ -6,24 +10,36 @@ var locationInfo = {
     addr: null
 };
 
-// Get user origin
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(updateUserOrigin, handleError);
 } else {
     console.log("Geolocation is not supported by your browser.");
 }
 
+/**
+ * Handles any errors
+ * @param {*} error Error
+ */
+
 function handleError(error) {
     console.warn(`ERROR(${error.code}): ${error.message}`);
 }
 
+/**
+ * Updates user's origin using latitude & longitude from the locationInfo
+ * @param {*} position Position of user
+ */
 
 function updateUserOrigin(position) {
     locationInfo.lat = position.coords.latitude;
     locationInfo.lng = position.coords.longitude;
 }
 
-// Reads user destination from html text box
+
+/**
+ * Reads user destination from HTML text box
+ */
+
 function getUserDestination() {
     locationInfo.addr = document.getElementById("user-destination-input").value;
 
@@ -32,7 +48,10 @@ function getUserDestination() {
     }
 }
 
-// Sends location information stored in locationInfo
+/**
+ * Sends location information stored in locationInfo to Python backend
+ */
+
 function sendLocationInfo() {
     const{lat, lng, addr} = locationInfo;
 
@@ -57,13 +76,17 @@ function sendLocationInfo() {
             // Handle the data received from the backend
             console.log('Response from server:', data);
             updateAirportInfo(data);
-            // You can do more with the data here if needed
         })
         .catch((error) => {
             console.error('Error:', error);
         });
     }
 }
+
+/**
+ * Update airport information based off 
+ * @param {*} data Airport data
+ */
 
 function updateAirportInfo(data) {
     if (data.origin_airport && data.des_airport) {
@@ -77,6 +100,13 @@ function updateAirportInfo(data) {
         displayModal(data.origin_airport, data.des_airport, data);
     }
 }
+
+/**
+ * Function to display modal for pop-up functionality to show all airport & airline information
+ * @param {*} orig Origin airport
+ * @param {*} dest Destination airport
+ * @param {*} data Airline data
+ */
 
 function displayModal(orig, dest, data){
     $('#map').on('click', function () {
@@ -94,8 +124,14 @@ function displayModal(orig, dest, data){
       $('#airportInfoModal').modal('show');
     });
   }
-  
+
+/**
+ * Displaying airline information including day & duration 
+ * @param {*} airlineId Airline ID Ex: "sp" is Spirit Airlines
+ * @param {*} info Airline information
+ */
+
   function displayAirlineInfo(airlineId, info) {
     $(`#${airlineId}-day`).text(info[0]);
     $(`#${airlineId}-duration`).text(info[1]);
-  }
+}
