@@ -1,0 +1,27 @@
+.flight-button {
+    background-color: #6a139d; /* purple */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 9px #9e8fb8;
+}
+
+.flight-button:hover {
+    background-color: rgb(54, 2, 93); /* Darker purple */
+    box-shadow: 0 5px #7a6c94;
+    transform: translateY(4px);
+}
+
+.flight-button:active {
+    background-color: #563e8e;
+    box-shadow: 0 5px #9e8fb8;
+    transform: translateY(4px);
+}
