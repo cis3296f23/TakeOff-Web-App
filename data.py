@@ -106,8 +106,14 @@ def get_routes(origin_airport, des_airport, airlines):
                 for data in route_data:
                     if data['duration'] < shortest:
                         shortest = data['duration']
-                        day = data['days'][0]
-                times[airlines['names'][i]] = [day, shortest]
+                        day = data['days'][0].upper()
+                if day == "":
+                    day = "Flight day is not available. Please check again later."
+                if shortest == "":
+                    shortest = "There are no available flights to this destination."
+                times[airlines['names'][i]] = [day, str(shortest) + " minutes"]
+            else:
+                 times[airlines['names'][i]] = ["Flight day is not available. Please check again later.", "There are no available flights to this destination."]
         else:
             print("API request failed with status code:", route_response.status_code)
     return times
@@ -117,8 +123,6 @@ def get_coordinates():
     data = request.get_json()
     lat = data['lat']
     lng = data['lng']
-    print(lng)
-    print(lat)
     origin_airport = origin(lat, lng)
     location = geocoder.osm(data['address'])
     lat, long = location.lat, location.lng
