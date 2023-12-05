@@ -23,6 +23,10 @@ function validateLogin() {
     .then((data) => {
       if (data.success) {
         console.log("Login successful");
+        closeModal('loginModal'); // Close the login modal
+       // Display the username on the screen
+       const loggedInUser = document.getElementById("loggedInUser");
+       loggedInUser.textContent = `Welcome, ${username}!`;
         // Redirect to a dashboard or logged-in page
         // window.location.href = '/dashboard'; // Redirect to dashboard
       } else {

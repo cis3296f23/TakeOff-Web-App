@@ -25,6 +25,7 @@ function validateSignup() {
         if (data.success) {
           // Signup was successful
           console.log("Account Creation successful");
+          closeModal('signupModal'); // Close the signup modal
           signupError.textContent = "Account creation successful";
           signupError.style.color = "green";
         } else {
