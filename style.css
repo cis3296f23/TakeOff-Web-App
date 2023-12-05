@@ -67,15 +67,6 @@ body {
     justify-content: center;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .modal-title {
     color: #333;
     font-size: 24px;
@@ -137,8 +128,8 @@ body {
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust this pixel value as needed */
 }
 
 .close {
