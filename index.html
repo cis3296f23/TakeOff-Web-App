@@ -20,7 +20,6 @@
         <div id="login-section">
             <h3 onclick="openModal('loginModal')"><a href="#">Login</a></h3>
             <h3 onclick="openModal('signupModal')"><a href="#">Sign Up</a></h3>
-
         </div>
         <div id="loggedInUser"></div>
     </div>
@@ -74,6 +73,11 @@
         </div>
     </div>
     
+    <div class="user-destination">
+        <label for="user-destination-input" class="mr-2">Destination:</label>
+        <input type="text" id="user-destination-input" class="form-control mr-2">
+        <button onclick="getUserDestination()" class="btn btn-primary">Go</button>
+    </div>
 
     <div id="loginModal" class="modal">
         <div class="modal-content">
