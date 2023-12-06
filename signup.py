@@ -4,7 +4,7 @@
 from flask import Flask, request, jsonify, make_response
 import cx_Oracle
 from flask_cors import CORS
-import pydoc
+# import pydoc
 
 app = Flask(__name__)
 CORS(app)
@@ -61,4 +61,4 @@ def signup():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5002)
-pydoc.writedoc('signup')
+# pydoc.writedoc('signup')

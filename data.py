@@ -1,7 +1,7 @@
 """ Description: Gets all data needed for the backend including user's location coordinates, origin & destination airport information, airlines information, and route information. 
 """
 
-import pydoc
+# import pydoc
 import json
 import geocoder
 import requests
@@ -262,4 +262,4 @@ def get_coordinates():
 # Run the Flask app when this script is executed
 if __name__ == '__main__':
     app.run(debug=True, port=5001)  # Run the app in debug mode on port 5001
-    pydoc.writedoc('data')
+    # pydoc.writedoc('data')
