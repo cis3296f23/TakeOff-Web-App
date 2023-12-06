@@ -1,3 +1,7 @@
+/**
+ * Object declaration of locationInfo that has latitude & longitude for origin location as well as address for destination location
+ */
+
 var locationInfo = {
     // origin
     lat: null,
@@ -13,17 +17,30 @@ if (navigator.geolocation) {
     console.log("Geolocation is not supported by your browser.");
 }
 
+/**
+ * Handles any errors
+ * @param {*} error Error
+ */
+
 function handleError(error) {
     console.warn(`ERROR(${error.code}): ${error.message}`);
 }
 
+/**
+ * Updates user's origin using latitude & longitude from the locationInfo
+ * @param {*} position Position of user
+ */
 
 function updateUserOrigin(position) {
     locationInfo.lat = position.coords.latitude;
     locationInfo.lng = position.coords.longitude;
 }
 
-// Reads user destination from html text box
+
+/**
+ * Reads user destination from HTML text box
+ */
+
 function getUserDestination() {
     locationInfo.addr = document.getElementById("user-destination-input").value;
 
@@ -32,7 +49,10 @@ function getUserDestination() {
     }
 }
 
-// Sends location information stored in locationInfo
+/**
+ * Sends location information stored in locationInfo to Python backend
+ */
+
 function sendLocationInfo() {
     const{lat, lng, addr} = locationInfo;
 
@@ -57,7 +77,6 @@ function sendLocationInfo() {
             // Handle the data received from the backend
             console.log('Response from server:', data);
             updateAirportInfo(data);
-            // You can do more with the data here if needed
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -65,37 +84,57 @@ function sendLocationInfo() {
     }
 }
 
+/**
+ * Update airport information based off 
+ * @param {*} data Airport data
+ */
+
 function updateAirportInfo(data) {
     if (data.origin_airport && data.des_airport) {
-        document.getElementById('origin-airport-name').innerText = data.origin_airport.name;
-        document.getElementById('destination-airport-name').innerText = data.des_airport.name;
-        document.getElementById('origin-airport-iata').innerText = data.origin_airport.iata_code
-        document.getElementById('destination-airport-iata').innerText = data.des_airport.iata_code;
+        document.getElementById('origin-airport-name').innerText = data.origin_airport.name; //Getting origin airport name
+        document.getElementById('destination-airport-name').innerText = data.des_airport.name; //Getting destionation airport name
+        document.getElementById('origin-airport-iata').innerText = data.origin_airport.iata_code //Getting origin airport IATA code
+        document.getElementById('destination-airport-iata').innerText = data.des_airport.iata_code; //Getting destination airport IATA code
 
 
         updateMap(data.origin_airport, data.des_airport); // From mapdata.js
-        displayModal(data.origin_airport, data.des_airport, data);
+        displayModal(data.origin_airport, data.des_airport, data); //Display pop up
     }
 }
 
+/**
+ * Displaying airline information including day & duration 
+ * @param {*} airlineId Airline ID Ex: "sp" is Spirit Airlines
+ * @param {*} info Airline information
+ */
+
+function displayAirlineInfo(airlineId, info) {
+    $(`#${airlineId}-day`).text(info[0]); //Day of flight
+    $(`#${airlineId}-duration`).text(info[1]); //Duration of flight in minutes
+}
+
+/**
+ * Function to display modal for pop-up functionality to show all airport & airline information
+ * @param {*} orig Origin airport
+ * @param {*} dest Destination airport
+ * @param {*} data Airline data
+ */
+
 function displayModal(orig, dest, data){
     $('.flight-button').on('click', function () {
-      $('#modal-origin-airport-name').text(orig.name);
-      $('#modal-destination-airport-name').text(dest.name);
-      $('#origin-airport-iata').text(`(${orig.iata_code})`);
-      $('#destination-airport-iata').text(`(${dest.iata_code})`);
+    $('#modal-origin-airport-name').text(orig.name); //Origin name
+      $('#modal-destination-airport-name').text(dest.name); //Destination name
+      $('#origin-airport-iata').text(`(${orig.iata_code})`); //Origin IATA code
+      $('#destination-airport-iata').text(`(${dest.iata_code})`); //Destination IATA code
   
+      //Display airline information for each of the airlines
       displayAirlineInfo('aa', data.aa);
       displayAirlineInfo('sw', data.sw);
       displayAirlineInfo('sp', data.sp);
       displayAirlineInfo('da', data.da);
       displayAirlineInfo('ua', data.ua);
 
+      //Show airport information
       $('#airportInfoModal').modal('show');
     });
-  } 
-  
-  function displayAirlineInfo(airlineId, info) {
-    $(`#${airlineId}-day`).text(info[0]);
-    $(`#${airlineId}-duration`).text(info[1]);
   }

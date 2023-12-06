@@ -1,3 +1,7 @@
+/**
+ * Function to validate signup by getting the new username & new password, based on response display any errors/messages front end
+ */
+
 function validateSignup() {
     var newUsername = document.getElementById("newUsername").value;
     var newPassword = document.getElementById("newPassword").value;

@@ -1,3 +1,7 @@
+""" Description: Gets all data needed for the backend including user's location coordinates, origin & destination airport information, airlines information, and route information. 
+"""
+
+# import pydoc
 import json
 import geocoder
 import requests
@@ -10,6 +14,15 @@ CORS(app)  # Enable CORS for all routes or specify origins with CORS(app, origin
 
 # Function to find the nearest popular airport given a latitude and longitude
 def origin(lat, lng):
+
+    """ Description: Gets the airports from user's nearby location using their latitude & longitude with Airlabs API
+    Return: 1 airport filtered by popularity
+
+    Parameters: 
+        lat - latitude
+        lng - longitude
+    """
+
      # Parameters for the API request: API key, latitude, longitude, and search distance
     origin_params = {
         'api_key': 'afc3037c-40d6-4090-b7ff-d0c9ea928454',
@@ -44,6 +57,14 @@ def origin(lat, lng):
 
 # Function to find the nearest popular destination airport given a latitude and longitude
 def des(lat, lng):
+
+    """ Description: Gets the nearest popular destination airports using AirLabs API given the latitude & longitude
+
+    Parameters: 
+        lat - latitude
+        lng - longitude
+    """
+
     # Parameters for the API request: API key, latitude, longitude, and search distance
     des_params = {
         'api_key': 'afc3037c-40d6-4090-b7ff-d0c9ea928454',
@@ -95,6 +116,11 @@ airline_params = {
 
 # Function to get data of specific airlines
 def get_airlines():
+
+    """ Description: Gets specific airline data from the 5 most common airlines used in the US using Airlabs API
+    Return: The 5 airline names with their IATA codes
+    """
+
     # Initial dictionary to store airline names and their respective IATA and ICAO codes
     airlines = {
         # List of 5 most common airlines used in the US
@@ -128,6 +154,15 @@ def get_airlines():
 
 # Function to get flight routes for given origin and destination airports and a list of airlines
 def get_routes(origin_airport, des_airport, airlines):
+
+    """ Description: Gets flight route information based off origin airport, destination airport, & list of airlines using AirLabs API
+    Return: Each routes' day of flight & duration of flight in minutes
+
+    Parameters: 
+        origin_airport - origin airport
+        des_airport - destination airport
+        airlines - airlines
+    """
     # Initialize a dictionary to store the flight times for each airline
     times = {}
 
@@ -186,6 +221,11 @@ def get_routes(origin_airport, des_airport, airlines):
 # Route to handle the POST request to '/get_coordinates'
 @app.route('/get_coordinates', methods=['POST'])
 def get_coordinates():
+
+    """ Description: Gets user's current location coordinates to determine the destination airport & get airlines to r
+    Return: Jsonify objects of information including origin & destination airport, flight information from each of the airlines with a message saying that data has been processed 
+    """
+
     # Retrieve and parse the JSON data sent in the POST request
     data = request.get_json()
     lat = data['lat']
@@ -222,4 +262,4 @@ def get_coordinates():
 # Run the Flask app when this script is executed
 if __name__ == '__main__':
     app.run(debug=True, port=5001)  # Run the app in debug mode on port 5001
-
+    # pydoc.writedoc('data')
