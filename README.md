@@ -7,25 +7,6 @@ Take Off is a web application project inspired by FlightRadar24. Users are able 
 #### Our Mockup:
 ![Take-Off Mock up](Take-Off_Mock_Up.png)
 
-# How to run
-To run our project you need to download three files:
-
-    data.py
-
-    login.py
-
-    signup.py
-
-After downloading these files, open up three terminals on your local machine.
-In **each** terminal insert **ONE** of these commands
-
-`start python data.py`
-
-`start python login.py`
-
-`start python signup.py`
-
-After running all three commands in different terminals, launch the website by clicking this link [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
 
 # How to contribute
 Follow this project board to know the latest status of the project: [Project Board](https://github.com/orgs/cis3296f23/projects/130/views/1)
@@ -87,6 +68,25 @@ After all this, you can sucessfully do
 To double check the success, rerun the commands and you should expect a similiar output:
 
 ![cx_Oracle](ImagesForReadMe/cx_Oracle.JPG)
+
+# How to run
+To run our project you need to download three files:
+
+- [data.py](https://github.com/cis3296f23/TakeOff-Web-App/blob/main/data.py)
+- [login.py](https://github.com/cis3296f23/TakeOff-Web-App/blob/main/login.py)
+- [signup.py](https://github.com/cis3296f23/TakeOff-Web-App/blob/main/signup.py)
+
+
+After downloading these files, open up three terminals on your local machine.
+In **each** terminal insert **ONE** of these commands
+
+`start python data.py`
+
+`start python login.py`
+
+`start python signup.py`
+
+After running all three commands in different terminals, launch the website by clicking this link [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
 
 
 
