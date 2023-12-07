@@ -5,7 +5,11 @@ Take Off is a web application project inspired by FlightRadar24. Users are able 
 ![Flightradar24.com Homepage](Flightradar24.png)
 
 #### Our Mockup:
-![Take-Off Mock up](Take-Off_Mock_Up.png)
+![Take-Off Mock up](Old_Take-Off_Mock_Up.png)
+
+
+#### Final Product:
+![Take-Off Final Product](Take-Off_Mock_Up.png)
 
 
 # How to contribute
