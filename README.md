@@ -8,7 +8,16 @@ Take Off is a web application project inspired by FlightRadar24. Users are able 
 ![Take-Off Mock up](Take-Off_Mock_Up.png)
 
 # How to run
-As the project progress, this will be updated. For now, simply launch [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
+To run our project you need to download three files:
+    data.py
+    login.py
+    signup.py
+After downloading these files, open up three terminals on your local machine.
+In **each** terminal insert **ONE** of these commands
+`start python data.py`
+`start python login.py`
+`start python signup.py`
+After running all three commands in different terminals, launch the website by clicking this link [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
 
 # How to contribute
 Follow this project board to know the latest status of the project: [Project Board](https://github.com/orgs/cis3296f23/projects/130/views/1)
