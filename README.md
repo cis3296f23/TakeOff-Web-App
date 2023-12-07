@@ -97,7 +97,7 @@ In **each** terminal insert **ONE** of these commands
 After running all three commands in different terminals, launch the website by clicking this link [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
 
 ## Mac
-To run our project you need to download three files:
+To run our project you need to download one file:
 
 - [data.py](https://github.com/cis3296f23/TakeOff-Web-App/blob/main/data.py)
 
