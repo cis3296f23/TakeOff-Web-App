@@ -1,6 +1,10 @@
+""" Description: Connects to the database & runs signup function
+"""
+
 from flask import Flask, request, jsonify, make_response
 import cx_Oracle
 from flask_cors import CORS
+# import pydoc
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +24,11 @@ except cx_Oracle.DatabaseError as e:
 
 @app.route('/signup', methods=['POST'])
 def signup():
+
+    """ Description: Gets new username & password information & check if it already exists in Oracle database, if yes there will be error message, if no then create the new user into the database
+    Return: Message response with status code
+    """
+        
     if request.method == 'POST':
         data = request.get_json()
         new_username = data.get('newUsername')
@@ -51,4 +60,5 @@ def signup():
         return make_response(response, status_code)
 
 if __name__ == '__main__':
-  app.run(debug=True, port=5002)
+    app.run(debug=True, port=5002)
+# pydoc.writedoc('signup')
