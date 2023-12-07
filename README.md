@@ -21,6 +21,8 @@ This project has been thoroughly tested on python v3.12.0 and javascript (ECMASc
 
 This project makes use of multiple different libraries, packages and drivers all of which will be necessary to build.
 
+**To use the login/signup feature, a Windows machine is required.**
+
 ### Geocoder
 Firstly, we will need the 'geocoder' library which is a simple and consistent geocoding library written in Python. This is done simply using the 
 `pip install geocoder` command.
@@ -74,6 +76,8 @@ To double check the success, rerun the commands and you should expect a similiar
 ![cx_Oracle](ImagesForReadMe/cx_Oracle.JPG)
 
 # How to run
+
+## Windows
 To run our project you need to download three files:
 
 - [data.py](https://github.com/cis3296f23/TakeOff-Web-App/blob/main/data.py)
@@ -91,6 +95,18 @@ In **each** terminal insert **ONE** of these commands
 `start python signup.py`
 
 After running all three commands in different terminals, launch the website by clicking this link [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
+
+## Mac
+To run our project you need to download three files:
+
+- [data.py](https://github.com/cis3296f23/TakeOff-Web-App/blob/main/data.py)
+
+After downloading these files, open up a terminal window on your local machine.
+In the terminal insert the following command:
+
+`python3 data.py`
+
+After running this command in terminal, launch the website by clicking this link [TakeOff-Web-App](https://cis3296f23.github.io/TakeOff-Web-App/) 
 
 
 
